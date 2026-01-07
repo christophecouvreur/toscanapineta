@@ -1,7 +1,7 @@
 {
   "settings": {
     "name": "Toscanapineta.fr",
-    "currentPage": "page8.html",
+    "currentPage": "index.html",
     "ai": {
       "prompt": "Crée un site minimaliste pour louer notre ferme en Toscane à un public privé.\n•\tHomepage : Photos du lieu + bouton 'Accès privé' (mot de passe) + formulaire pour demander le code d'accès.\n•\tEspace Accès privé : chaque page comprend du texte et des images\n- Page: Présentation de la ferme et appartements (prix/jour + calendrier de réservation → envoi email à toscana_fc@gmail.com)\n- Pages : Projet (texte/images), \n- Page : Galerie de photos des appartements\n- Page:  Localisation (carte), \n- Page: Règles de vie, À propos (photos + texte), \n- Page: Témoignages.\nStyle : Épuré, couleurs naturelles, navigation intuitive\n",
       "imageSearchQuery": "Tuscan landscape, farmhouse, apartment interior, olive grove, vineyard"
@@ -284,7 +284,7 @@
       "iconColor": "#b0b2b5",
       "placeholderText": "Votre Code d'Accès"
     },
-    "publishChangesOnly": false
+    "publishChangesOnly": true
   },
   "pages": {
     "index.html": {
