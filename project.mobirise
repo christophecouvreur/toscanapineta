@@ -1,7 +1,7 @@
 {
   "settings": {
     "name": "Toscanapineta.fr",
-    "currentPage": "page1.html",
+    "currentPage": "page10.html",
     "ai": {
       "prompt": "Crée un site minimaliste pour louer notre ferme en Toscane à un public privé.\n•\tHomepage : Photos du lieu + bouton 'Accès privé' (mot de passe) + formulaire pour demander le code d'accès.\n•\tEspace Accès privé : chaque page comprend du texte et des images\n- Page: Présentation de la ferme et appartements (prix/jour + calendrier de réservation → envoi email à toscana_fc@gmail.com)\n- Pages : Projet (texte/images), \n- Page : Galerie de photos des appartements\n- Page:  Localisation (carte), \n- Page: Règles de vie, À propos (photos + texte), \n- Page: Témoignages.\nStyle : Épuré, couleurs naturelles, navigation intuitive\n",
       "imageSearchQuery": "Tuscan landscape, farmhouse, apartment interior, olive grove, vineyard"
@@ -3025,7 +3025,7 @@
           "_PHPplaceholders": [],
           "_JSplaceholders": [
             "<script src=\"//widget.simplybook.it/v2/widget/widget.js\" type=\"text/javascript\"></script>",
-            "<script type=\"text/javascript\">\n    var widget = new SimplybookWidget({\"widget_type\":\"button\",\"url\":\"https:\\/\\/toscanapineta.simplybook.it\",\"theme\":\"air\",\"theme_settings\":{\"timeline_modern_display\":\"as_slots\",\"timeline_hide_unavailable\":\"1\",\"hide_past_days\":\"0\",\"timeline_show_end_time\":\"0\",\"sb_base_color\":\"#7b8a78\",\"display_item_mode\":\"block\",\"booking_nav_bg_color\":\"#7b8a78\",\"body_bg_color\":\"#ffffff\",\"sb_review_image\":\"\",\"dark_font_color\":\"#474747\",\"light_font_color\":\"#ffffff\",\"btn_color_1\":\"#b0c3ac\",\"sb_company_label_color\":\"#ffffff\",\"hide_img_mode\":\"0\",\"show_sidebar\":\"1\",\"sb_busy\":\"#c7b3b3\",\"sb_available\":\"#d6ebff\"},\"timeline\":\"modern\",\"datepicker\":\"top_calendar\",\"is_rtl\":false,\"app_config\":{\"clear_session\":0,\"allow_switch_to_ada\":0,\"predefined\":[]},\"button_title\":\"R\\u00e9server maintenant\",\"button_background_color\":\"#7b8a78\",\"button_text_color\":\"#ffffff\",\"button_position\":\"right\",\"button_position_offset\":\"55%\"});\n</script>"
+            "<script type=\"text/javascript\">\n    var widget = new SimplybookWidget({\"widget_type\":\"iframe\",\"url\":\"https:\\/\\/toscanapineta.simplybook.it\",\"theme\":\"space\",\"theme_settings\":{\"timeline_hide_unavailable\":\"1\",\"sb_base_color\":\"#49306b\",\"hide_past_days\":\"0\",\"timeline_show_end_time\":\"0\",\"timeline_modern_display\":\"as_slots\",\"display_item_mode\":\"block\",\"body_bg_color\":\"#ffffff\",\"sb_review_image\":\"\",\"dark_font_color\":\"#474747\",\"light_font_color\":\"#ffffff\",\"btn_color_1\":\"#c98e5a\",\"sb_company_label_color\":\"#ffffff\",\"hide_img_mode\":\"0\",\"show_sidebar\":\"1\",\"sb_busy\":\"#c7b3b3\",\"sb_available\":\"#d6ebff\"},\"timeline\":\"modern\",\"datepicker\":\"top_calendar\",\"is_rtl\":false,\"app_config\":{\"clear_session\":1,\"allow_switch_to_ada\":0,\"predefined\":{\"service\":\"4\"}}});\n</script>"
           ]
         }
       ]
