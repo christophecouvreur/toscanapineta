@@ -1,7 +1,7 @@
 {
   "settings": {
     "name": "Toscanapineta.fr",
-    "currentPage": "page10.html",
+    "currentPage": "page3.html",
     "ai": {
       "prompt": "Crée un site minimaliste pour louer notre ferme en Toscane à un public privé.\n•\tHomepage : Photos du lieu + bouton 'Accès privé' (mot de passe) + formulaire pour demander le code d'accès.\n•\tEspace Accès privé : chaque page comprend du texte et des images\n- Page: Présentation de la ferme et appartements (prix/jour + calendrier de réservation → envoi email à toscana_fc@gmail.com)\n- Pages : Projet (texte/images), \n- Page : Galerie de photos des appartements\n- Page:  Localisation (carte), \n- Page: Règles de vie, À propos (photos + texte), \n- Page: Témoignages.\nStyle : Épuré, couleurs naturelles, navigation intuitive\n",
       "imageSearchQuery": "Tuscan landscape, farmhouse, apartment interior, olive grove, vineyard"
@@ -265,7 +265,7 @@
         "css": "'Golos Text', sans-serif"
       }
     ],
-    "uniqCompNum": 119,
+    "uniqCompNum": 123,
     "imageResize": false,
     "favicon": false,
     "mbrsiteDomain": "toscanapineta",
@@ -622,6 +622,78 @@
           "_global": false,
           "_once": false,
           "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 1rem)",
+            "padding-bottom": "(@paddingBottom * 1rem)",
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            ".mbr-fallback-image.disabled": {
+              "display": "none"
+            },
+            ".mbr-fallback-image": {
+              "display": "block",
+              "background-size": "cover",
+              "background-position": "center center",
+              "width": "100%",
+              "height": "100%",
+              "position": "absolute",
+              "top": "0",
+              "& when (@bg-type = 'video')": {
+                "background-image": "url(@fallBackImage)"
+              }
+            },
+            ".card-wrapper": {
+              "position": "relative",
+              "z-index": "1",
+              "overflow": "hidden",
+              "padding": "70px",
+              "background-color": "@containerBg",
+              "@media (max-width: 992px)": {
+                "padding": "20px"
+              },
+              ".title-wrapper": {
+                "position": "relative",
+                "z-index": "1",
+                ".mbr-section-title": {
+                  "display": "inline-block",
+                  "width": "60%",
+                  "margin-bottom": "50px",
+                  "@media (max-width: 992px)": {
+                    "width": "100%",
+                    "margin-bottom": "20px"
+                  }
+                }
+              },
+              ".google-map": {
+                "iframe": {
+                  "height": "500px",
+                  "@media (max-width: 992px)": {
+                    "height": "300px"
+                  }
+                }
+              }
+            },
+            ".mbr-section-title, .title-wrapper": {
+              "color": "#323432",
+              "text-align": "center"
+            }
+          },
+          "_name": "map01",
+          "_sourceTheme": "plantm5",
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"map01 plantm5\" group=\"Contact\" mbr-class=\"{\n    'mbr-fullscreen': fullScreen,\n    'mbr-parallax-background': bg.parallax}\">\n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\" checked>\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"12\" step=\"1\" value=\"5\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"12\" step=\"1\" value=\"5\">\n        <header>Show/Hide</header>\n        <input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked>\n        <input type=\"color\" title=\"Container BG\" value=\"#e6eddc\" name=\"containerBg\" selected>\n        <header>Map</header>\n        <input type=\"map\" title=\"Map\" name=\"googleMap\">\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Image\" value=\"../_images/background1.jpg\">\n            <input type=\"color\" title=\"Color\" value=\"#f1f5eb\" selected>\n        </fieldset>\n        <header condition=\"bg.type === 'video'\">Fallback Image</header>\n        <input type=\"image\" title=\"Fallback Image\" value=\"../_images/background1.jpg\" name=\"fallBackImage\" condition=\"bg.type === 'video'\">\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\">\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#f1f5eb\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.5\" condition=\"overlay && bg.type !== 'color'\">\n    </mbr-parameters>\n\n    <div class=\"mbr-fallback-image disabled\" mbr-if=\"bg.type == 'video'\"></div>\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n\n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row\">\n            <div class=\"col-12\">\n                <div class=\"card-wrapper large-radius\">\n                    <div class=\"title-wrapper\">\n                        <h2 class=\"mbr-section-title mbr-fonts-style\" data-app-selector=\".mbr-section-title, .mbr-section-btn, .title-wrapper\" mbr-theme-style=\"display-2\" mbr-if=\"showTitle\">Find us and let the magic of Tuscany work its charm</h2>\n                    </div>\n                    <div class=\"google-map\" mbr-map=\"googleMap\"></div>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "v9ZpFpmzw3",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {},
+          "_anchor": "map01-3e"
         }
       ]
     },
@@ -1963,7 +2035,7 @@
           "_name": "ai-component",
           "_anchor": "header01-2o",
           "_sourceTheme": "plantm5",
-          "_customHTML": "<section data-bs-version=\"5.1\" group=\"Features\" mbr-class=\"{'mbr-fullscreen': fullScreen,'mbr-parallax-background': bg.parallax}\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\">\n    <mbr-parameters>\n        <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n        <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"12\" step=\"1\" value=\"6\" condition=\"fullScreen == false\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"12\" step=\"1\" value=\"6\" condition=\"fullScreen == false\">\n        <header>Background</header>\n            <fieldset type=\"background\" name=\"bg\" parallax>\n                <input type=\"image\" title=\"Image\" value>\n                <input type=\"color\" title=\"Color\" value=\"#ffffff\" selected>\n                <input type=\"video\" title=\"Video\" value=\"https://vimeo.com/428046504\">\n            </fieldset>\n            <header condition=\"bg.type === 'video'\">Fallback Image</header>\n            <input type=\"image\" title=\"Fallback Image\" value name=\"fallBackImage\" condition=\"bg.type === 'video'\">\n            <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\">\n            <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#000000\" condition=\"overlay && bg.type !== 'color'\">\n            <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.5\" condition=\"overlay && bg.type !== 'color'\">\n    </mbr-parameters> <div class=\"mbr-fallback-image disabled\" mbr-if=\"bg.type == 'video'\"></div>\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity bg-color></div>\n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row\">\n            <div class=\"col-lg-6\">\n        <h2 mbr-theme-style=\"display-2\" class=\"mbr-section-title mbr-fonts-style mb-4 text-center\" data-app-selector=\".mbr-section-title\">Our Tuscan Landscape</h2>\n        <div class=\"row\">\n            <div class=\"col-md-6\">\n                <ul class=\"list-unstyled\">\n                    <li>* Located in Northern Maremma  </li>\n                    <li> * A perfectly central position in Tuscany  </li>\n                    <li>* Your Tuscan Adventure on the Etruscan Coast  </li>\n                    <li>* A coastline waiting to be explored, where nature, history, outdoor activities, and exceptional wines and olive oils come together. </li>\n                </ul>\n            </div>\n            <div class=\"col-md-6\">\n                <p class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".mbr-text\"><b>Unspoiled beaches with archaeological remains,</b><br><b> just 5 minutes away by car.</b><br><b><br>Medieval villages</b> such as Campiglia Marittima, Suvereto, and Bolgheri within a 20‑minute drive<br><br><b>Cultural cities</b> like Florence, Pisa, Siena, and Lucca reachable in 1h30 to 2h, and Rome in about 3 hours<br><br><b>Elba Island</b>, only 30 minutes by ferry from Piombino, along with the other islands of the <b>Tuscan Archipelago</b><br></p>\n            </div>\n        </div>\n    </div>\n\n    <div class=\"col-lg-3\">\n        <div class=\"image-wrapper\">\n            <img class=\"w-100\" src=\"@PROJECT_PATH@/assets/images/archipel-toscan.webp\" alt=\"Landscape Image 1\">\n        </div>\n        <div class=\"image-wrapper mt-3\">\n            <img class=\"w-100\" src=\"@PROJECT_PATH@/assets/images/gulf-necropolis-baratti.webp\" alt=\"Landscape Image 2\">\n        </div>\n    </div>\n\n    <div class=\"col-lg-3\">\n        <div class=\"image-wrapper\">\n            <img class=\"w-100\" src=\"@PROJECT_PATH@/assets/images/r246r-progetto-populonia.bianca-trionfi-davide.meneghini.hd.022.webp\" alt=\"Portrait Image\">\n        </div>\n        <div class=\"image-wrapper mt-3\">\n            <img class=\"w-100\" src=\"@PROJECT_PATH@/assets/images/images.webp\" alt=\"Landscape Image 3\">\n        </div>\n    </div>\n        </div>\n    </div>\n</section>",
+          "_customHTML": "<section data-bs-version=\"5.1\" group=\"Features\" mbr-class=\"{'mbr-fullscreen': fullScreen,'mbr-parallax-background': bg.parallax}\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\">\n    <mbr-parameters>\n        <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n        <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"12\" step=\"1\" value=\"6\" condition=\"fullScreen == false\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"12\" step=\"1\" value=\"6\" condition=\"fullScreen == false\">\n        <header>Background</header>\n            <fieldset type=\"background\" name=\"bg\" parallax>\n                <input type=\"image\" title=\"Image\" value>\n                <input type=\"color\" title=\"Color\" value=\"#ffffff\" selected>\n                <input type=\"video\" title=\"Video\" value=\"https://vimeo.com/428046504\">\n            </fieldset>\n            <header condition=\"bg.type === 'video'\">Fallback Image</header>\n            <input type=\"image\" title=\"Fallback Image\" value name=\"fallBackImage\" condition=\"bg.type === 'video'\">\n            <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\">\n            <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#000000\" condition=\"overlay && bg.type !== 'color'\">\n            <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.5\" condition=\"overlay && bg.type !== 'color'\">\n    </mbr-parameters> <div class=\"mbr-fallback-image disabled\" mbr-if=\"bg.type == 'video'\"></div>\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity bg-color></div>\n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row\">\n            <div class=\"col-lg-6\">\n        <h2 mbr-theme-style=\"display-2\" class=\"mbr-section-title mbr-fonts-style mb-4 text-center\" data-app-selector=\".mbr-section-title\">Our Tuscan Landscape</h2>\n        <div class=\"row\">\n            <div class=\"col-md-6\">\n                <ul class=\"list-unstyled\">\n                    <li>* Located in Northern Maremma  </li>\n                    <li> * A perfectly central position in Tuscany  </li>\n                    <li>* Your Tuscan Adventure on the Etruscan Coast  </li>\n                    <li>* A coastline waiting to be explored, where nature, history, outdoor activities, and exceptional wines and olive oils come together. </li>\n                </ul>\n            </div>\n            <div class=\"col-md-6\">\n                <p class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".mbr-text\"><b>Unspoiled beaches with archaeological remains,</b><br><b> just 5 minutes away by car.</b><br><b><br>Medieval villages</b> such as Campiglia Marittima, Suvereto, and Bolgheri within a 20‑minute drive<br><br><b>Cultural cities</b> like Florence, Pisa, Siena, and Lucca reachable in 1h30 to 2h drive, and Rome in about 3 hours drive<br><br><b>Elba Island</b>, only 30 minutes by ferry from Piombino, along with the other islands of the <b>Tuscan Archipelago</b><br></p>\n            </div>\n        </div>\n    </div>\n\n    <div class=\"col-lg-3\">\n        <div class=\"image-wrapper\">\n            <img class=\"w-100\" src=\"@PROJECT_PATH@/assets/images/archipel-toscan.webp\" alt=\"Landscape Image 1\">\n        </div>\n        <div class=\"image-wrapper mt-3\">\n            <img class=\"w-100\" src=\"@PROJECT_PATH@/assets/images/gulf-necropolis-baratti.webp\" alt=\"Landscape Image 2\">\n        </div>\n    </div>\n\n    <div class=\"col-lg-3\">\n        <div class=\"image-wrapper\">\n            <img class=\"w-100\" src=\"@PROJECT_PATH@/assets/images/r246r-progetto-populonia.bianca-trionfi-davide.meneghini.hd.022.webp\" alt=\"Portrait Image\">\n        </div>\n        <div class=\"image-wrapper mt-3\">\n            <img class=\"w-100\" src=\"@PROJECT_PATH@/assets/images/images.webp\" alt=\"Landscape Image 3\">\n        </div>\n    </div>\n        </div>\n    </div>\n</section>",
           "_cid": "v80qLxPcU4",
           "_PHPplaceholders": [],
           "_JSplaceholders": [],
@@ -2236,12 +2308,12 @@
               "border-bottom": "1px solid rgba(0, 0, 0, 0.1)"
             }
           },
-          "_customHTML": "<section data-bs-version=\"5.1\" group=\"Features\" mbr-class=\"{'mbr-fullscreen': fullScreen,'mbr-parallax-background': bg.parallax}\" data-bg-video=\"{{bg.type == 'video' &amp;&amp; bg.value.url}}\">\n    <mbr-parameters>\n        <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n        <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\" checked=\"\">\n        <input type=\"range\" inline=\"\" title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"12\" step=\"1\" value=\"6\" condition=\"fullScreen == false\">\n        <input type=\"range\" inline=\"\" title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"12\" step=\"1\" value=\"6\" condition=\"fullScreen == false\">\n        <header>Background</header>\n            <fieldset type=\"background\" name=\"bg\" parallax=\"\">\n                <input type=\"image\" title=\"Image\" value=\"https://images.unsplash.com/photo-1720135494767-66e3c184e8bc?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8VHVzY2FuJTIwdmFjYXRpb24lMjBsYW5kc2NhcGV8ZW58MHwwfHx8MTc2NTAxMTQyMnww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1200&amp;q=50\" selected=\"\">\n                <input type=\"color\" title=\"Color\" value=\"#f0f0f0\">\n                <input type=\"video\" title=\"Video\" value=\"https://vimeo.com/428046504\">\n            </fieldset>\n            <header condition=\"bg.type === 'video'\">Fallback Image</header>\n            <input type=\"image\" title=\"Fallback Image\" value=\"https://images.unsplash.com/photo-1720135494767-66e3c184e8bc?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8VHVzY2FuJTIwdmFjYXRpb24lMjBsYW5kc2NhcGV8ZW58MHwwfHx8MTc2NTAxMTQyMnww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1200&amp;q=50\" name=\"fallBackImage\" condition=\"bg.type === 'video'\">\n            <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked=\"\">\n            <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#000000\" condition=\"overlay &amp;&amp; bg.type !== 'color'\">\n            <input type=\"range\" inline=\"\" title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.3\" condition=\"overlay &amp;&amp; bg.type !== 'color'\">\n    </mbr-parameters> <div class=\"mbr-fallback-image disabled\" mbr-if=\"bg.type == 'video'\"></div>\n    <div class=\"mbr-overlay\" mbr-if=\"overlay &amp;&amp; bg.type !== 'color'\" opacity=\"\" bg-color=\"\"></div>\n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row\">\n            <div class=\"col-12\">\n    <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n        <div class=\"container-fluid\">\n            <a class=\"navbar-brand\" href=\"#\">Casale Pineta</a>\n            <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarNav\" aria-controls=\"navbarNav\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n                <span class=\"navbar-toggler-icon\"></span>\n            </button>\n            <div class=\"collapse navbar-collapse\" id=\"navbarNav\">\n                <ul class=\"navbar-nav\">\n                    <li class=\"nav-item\">\n                        <a class=\"nav-link active\" aria-current=\"page\" href=\"index.html\">Accueil</a>\n                    </li>\n                    <li class=\"nav-item\">\n                       <a class=\"nav-link\" href=\"page2.html\">Notre projet</a>\n                    </li>\n                    <li class=\"nav-item\">\n                       <a class=\"nav-link\" href=\"page3.html\">Notre Environnement</a>\n                        \n                    </li>\n                    <li class=\"nav-item\">\n                        <a class=\"nav-link\" href=\"page1.html\">Hébergement</a>\n                    \n                    </li>\n                    <li class=\"nav-item\">\n                        <a class=\"nav-link\" href=\"page10.html\">Reservation</a>\n                    </li>\n                                        \n                    <li class=\"nav-item\">\n                        <a class=\"nav-link\" href=\"page8.html\">FAQ et Règles de vie</a>\n                    </li>\n                                        \n                    <li class=\"nav-item\">\n                        <a class=\"nav-link\" href=\"page6.html\">Gallerie de Photos</a>\n                    </li>\n                </ul>\n            </div>\n        </div>\n    </nav>\n</div>\n        </div>\n    </div>\n</section>",
+          "_customHTML": "<section data-bs-version=\"5.1\" group=\"Features\" mbr-class=\"{'mbr-fullscreen': fullScreen,'mbr-parallax-background': bg.parallax}\" data-bg-video=\"{{bg.type == 'video' &amp;&amp; bg.value.url}}\">\n    <mbr-parameters>\n        <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n        <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\" checked=\"\">\n        <input type=\"range\" inline=\"\" title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"12\" step=\"1\" value=\"6\" condition=\"fullScreen == false\">\n        <input type=\"range\" inline=\"\" title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"12\" step=\"1\" value=\"6\" condition=\"fullScreen == false\">\n        <header>Background</header>\n            <fieldset type=\"background\" name=\"bg\" parallax=\"\">\n                <input type=\"image\" title=\"Image\" value=\"https://images.unsplash.com/photo-1720135494767-66e3c184e8bc?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8VHVzY2FuJTIwdmFjYXRpb24lMjBsYW5kc2NhcGV8ZW58MHwwfHx8MTc2NTAxMTQyMnww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1200&amp;q=50\" selected=\"\">\n                <input type=\"color\" title=\"Color\" value=\"#f0f0f0\">\n                <input type=\"video\" title=\"Video\" value=\"https://vimeo.com/428046504\">\n            </fieldset>\n            <header condition=\"bg.type === 'video'\">Fallback Image</header>\n            <input type=\"image\" title=\"Fallback Image\" value=\"https://images.unsplash.com/photo-1720135494767-66e3c184e8bc?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8VHVzY2FuJTIwdmFjYXRpb24lMjBsYW5kc2NhcGV8ZW58MHwwfHx8MTc2NTAxMTQyMnww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=1200&amp;q=50\" name=\"fallBackImage\" condition=\"bg.type === 'video'\">\n            <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked=\"\">\n            <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#000000\" condition=\"overlay &amp;&amp; bg.type !== 'color'\">\n            <input type=\"range\" inline=\"\" title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.3\" condition=\"overlay &amp;&amp; bg.type !== 'color'\">\n    </mbr-parameters> <div class=\"mbr-fallback-image disabled\" mbr-if=\"bg.type == 'video'\"></div>\n    <div class=\"mbr-overlay\" mbr-if=\"overlay &amp;&amp; bg.type !== 'color'\" opacity=\"\" bg-color=\"\"></div>\n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row\">\n            <div class=\"col-12\">\n    <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n        <div class=\"container-fluid\">\n            <a class=\"navbar-brand\" href=\"#\">Casale Pineta</a>\n            <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarNav\" aria-controls=\"navbarNav\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n                <span class=\"navbar-toggler-icon\"></span>\n            </button>\n            <div class=\"collapse navbar-collapse\" id=\"navbarNav\">\n                <ul class=\"navbar-nav\">\n                    <li class=\"nav-item\">\n                        <a class=\"nav-link active\" aria-current=\"page\" href=\"index.html\">Homepage</a>\n                    </li>\n                    <li class=\"nav-item\">\n                       <a class=\"nav-link\" href=\"page2.html\">Our project</a>\n                    </li>\n                    <li class=\"nav-item\">\n                       <a class=\"nav-link\" href=\"page3.html\">Local landscape</a>\n                        \n                    </li>\n                    <li class=\"nav-item\">\n                        <a class=\"nav-link\" href=\"page1.html\">Ours apartments</a>\n                    \n                    </li>\n                    <li class=\"nav-item\">\n                        <a class=\"nav-link\" href=\"page10.html\">Booking</a>\n                    </li>\n                                        \n                    <li class=\"nav-item\">\n                        <a class=\"nav-link\" href=\"page8.html\">FAQ and House rules</a>\n                    </li>\n                                        \n                    <li class=\"nav-item\">\n                        <a class=\"nav-link\" href=\"page6.html\">Pictures gallery</a>\n                    </li>\n                </ul>\n            </div>\n        </div>\n    </nav>\n</div>\n        </div>\n    </div>\n</section>",
           "_JSplaceholders": [],
           "_PHPplaceholders": [],
-          "_anchor": "ai-component-2c",
+          "_anchor": "ai-component-3b",
           "_isUserblock": true,
-          "_cid": "v7EBK4yilr",
+          "_cid": "v9ZoLBiHce",
           "_protectedParams": [],
           "_global": false,
           "_once": false,
@@ -2252,8 +2324,8 @@
           "_styles": {
             "padding-top": "(@paddingTop * 1rem)",
             "padding-bottom": "(@paddingBottom * 1rem)",
-            "& when (@bg-type = \"color\")": {
-              "background-color": "if(@transparentBg, transparent, @bg-value)"
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
             },
             "& when (@bg-type = 'image')": {
               "background-image": "url(@bg-value)"
@@ -2273,91 +2345,203 @@
                 "background-image": "url(@fallBackImage)"
               }
             },
+            ".card-wrapper": {
+              "position": "relative",
+              "overflow": "hidden",
+              "display": "flex",
+              "flex-direction": "column",
+              "align-items": "center",
+              "padding": "70px",
+              "background-color": "@containerBg",
+              "@media (max-width: 992px)": {
+                "padding": "20px"
+              },
+              ".decor-wrapper": {
+                "position": "absolute",
+                "bottom": "0",
+                "left": "-350px",
+                "width": "700px",
+                "height": "200px",
+                "&::before": {
+                  "content": "''",
+                  "position": "absolute",
+                  "width": "700px",
+                  "height": "200px",
+                  "border-radius": "100%",
+                  "background-color": "@decor",
+                  "pointer-events": "none"
+                },
+                "&::after": {
+                  "content": "''",
+                  "position": "absolute",
+                  "width": "700px",
+                  "height": "200px",
+                  "border-radius": "100%",
+                  "background-color": "@decor",
+                  "transform": "rotate(-45deg)",
+                  "pointer-events": "none"
+                }
+              },
+              ".decor_2": {
+                "left": "auto",
+                "right": "-350px",
+                "&::after": {
+                  "transform": "rotate(45deg)"
+                }
+              }
+            },
             ".title-wrapper": {
+              "position": "relative",
+              "z-index": "1",
+              "width": "60%",
+              "@media (max-width: 1440px)": {
+                "width": "70%"
+              },
+              "@media (max-width: 992px)": {
+                "width": "100%"
+              },
               ".mbr-section-title": {
-                "display": "inline-block",
-                "width": "50%",
                 "margin-bottom": "50px",
                 "@media (max-width: 992px)": {
-                  "width": "100%",
                   "margin-bottom": "40px"
                 }
               }
             },
-            ".items-wrapper": {
-              "display": "grid",
-              "grid-template-columns": "1fr 1fr 1fr 1fr",
-              "gap": "64px",
-              "@media (max-width: 1440px)": {
-                "grid-template-columns": "1fr 1fr"
+            ".embla__slide": {
+              "display": "flex",
+              "justify-content": "center",
+              "position": "relative",
+              "min-width": "100%",
+              "max-width": "100%",
+              "@media (max-width: 768px)": {
+                "min-width": "100%",
+                "max-width": "100%",
+                "margin-left": "1rem !important",
+                "margin-right": "1rem !important"
               },
-              "@media (max-width: 992px)": {
-                "display": "block"
-              }
-            },
-            ".item": {
-              "@media (max-width: 992px)": {
-                "margin-bottom": "40px"
-              },
-              ".item-wrapper": {
-                "height": "100%",
-                ".item-img": {
-                  "margin-bottom": "30px",
-                  "@media (max-width: 992px)": {
-                    "margin-bottom": "20px"
-                  },
-                  "img": {
-                    "height": "410px",
-                    "width": "100%",
-                    "object-fit": "cover",
-                    "@media (max-width: 992px)": {
-                      "height": "300px"
-                    }
-                  }
-                },
-                ".card-box": {
-                  ".card-name": {
-                    "margin-bottom": "10px"
-                  },
-                  ".card-role": {
-                    "margin-bottom": "0"
-                  },
-                  ".mbr-section-btn": {
-                    "margin-top": "20px",
-                    ".btn": {
-                      "min-height": "35px",
-                      "margin-bottom": "0"
+              ".slide-content": {
+                "width": "100%",
+                ".item-wrapper": {
+                  ".item-img": {
+                    "img": {
+                      "height": "570px",
+                      "width": "100%",
+                      "object-fit": "cover",
+                      "border-radius": "0 !important",
+                      "@media (max-width: 992px)": {
+                        "height": "350px"
+                      },
+                      "@media (max-width: 768px)": {
+                        "height": "300px"
+                      }
                     }
                   }
                 }
               }
             },
+            ".embla__button--next, .embla__button--prev": {
+              "display": "flex"
+            },
+            ".arrows-wrapper": {
+              "position": "absolute",
+              "top": "0",
+              "left": "0",
+              "width": "100%",
+              "display": "flex",
+              "justify-content": "center"
+            },
+            ".embla__button": {
+              "top": "27px",
+              "width": "54px",
+              "height": "54px",
+              "margin-top": "-1.5rem",
+              "font-size": "28px",
+              "background-color": "@arrowsBg !important",
+              "color": "@arrowsColor !important",
+              "border": "none !important",
+              "border-radius": "50%",
+              "transition": "all 0.3s",
+              "position": "absolute",
+              "display": "flex",
+              "justify-content": "center",
+              "align-items": "center",
+              "opacity": "1 !important",
+              "& when not (@arrows)": {
+                "display": "none"
+              },
+              "& when not (@arrowsMobile)": {
+                "@media (max-width: 768px)": {
+                  "display": "none"
+                }
+              },
+              "&:hover": {
+                "background-color": "@arrowsColor !important",
+                "color": "@arrowsBg !important"
+              },
+              "&:disabled": {
+                "opacity": ".5 !important",
+                "background-color": "@arrowsBg !important",
+                "color": "@arrowsColor !important"
+              },
+              "&.embla__button--prev": {
+                "margin-right": "78px"
+              },
+              "&.embla__button--next": {
+                "margin-left": "78px"
+              }
+            },
+            ".embla": {
+              "position": "relative",
+              "z-index": "1",
+              "width": "55%",
+              "@media (max-width: 1440px)": {
+                "width": "70%"
+              },
+              "@media (max-width: 992px)": {
+                "width": "100%"
+              },
+              "& when (@arrows)": {
+                "padding-top": "6rem"
+              }
+            },
+            ".embla__viewport": {
+              "overflow": "hidden",
+              "width": "100%",
+              "padding": "0",
+              "@media (max-width: 768px)": {
+                "padding": "0"
+              }
+            },
+            ".embla__viewport.is-draggable": {
+              "cursor": "grab"
+            },
+            ".embla__viewport.is-dragging": {
+              "cursor": "grabbing"
+            },
+            ".embla__container": {
+              "display": "flex",
+              "user-select": "none",
+              "-webkit-touch-callout": "none",
+              "-khtml-user-select": "none",
+              "-webkit-tap-highlight-color": "transparent"
+            },
+            ".item-menu-overlay": {
+              "opacity": "0 !important"
+            },
             ".mbr-section-title, .title-wrapper": {
-              "color": "#210B03",
+              "color": "#323432",
               "text-align": "center"
-            },
-            ".card-name": {
-              "color": "#323432"
-            },
-            ".card-role": {
-              "color": "#210B03",
-              "text-align": "center"
-            },
-            ".card-name, .mbr-section-btn": {
-              "text-align": "center",
-              "color": "#210B03"
             }
           },
-          "_name": "features05",
+          "_name": "slider02",
           "_sourceTheme": "plantm5",
-          "_customHTML": "<section data-bs-version=\"5.1\" class=\"features05 plantm5\" group=\"Features\" mbr-class=\"{\n    'mbr-fullscreen': fullScreen,\n    'mbr-parallax-background': bg.parallax}\">\n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\" checked>\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"12\" step=\"1\" value=\"5\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"12\" step=\"1\" value=\"5\">\n        <header>Show/Hide</header>\n        <input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked>\n        <header>Cards</header>\n        <input type=\"checkbox\" title=\"Card Name\" name=\"showName\" checked>\n        <input type=\"checkbox\" title=\"Card Role\" name=\"showRole\" checked>\n        <input type=\"checkbox\" title=\"Card Buttons\" name=\"showButtons\" checked>\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Image\" value=\"@PROJECT_PATH@/assets/images/background1.jpg\">\n            <input type=\"color\" title=\"Color\" value=\"#f1f5eb\" selected>\n        </fieldset>\n        <input type=\"checkbox\" title=\"Transparent\" name=\"transparentBg\" condition=\"bg.type === 'color'\" checked>\n        <header condition=\"bg.type === 'video'\">Fallback Image</header>\n        <input type=\"image\" title=\"Fallback Image\" value=\"@PROJECT_PATH@/assets/images/background1.jpg\" name=\"fallBackImage\" condition=\"bg.type === 'video'\">\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\">\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#f1f5eb\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.5\" condition=\"overlay && bg.type !== 'color'\">\n    </mbr-parameters>\n\n    <div class=\"mbr-fallback-image disabled\" mbr-if=\"bg.type == 'video'\"></div>\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n\n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row\">\n            <div class=\"col-12\">\n                <div class=\"title-wrapper\">\n                    <h2 class=\"mbr-section-title mbr-fonts-style\" mbr-theme-style=\"display-2\" data-app-selector=\".mbr-section-title, .title-wrapper\" mbr-if=\"showTitle\">Notre Équipe de Rêve</h2>\n                </div>\n            </div>\n            <div class=\"col-12\">\n                <div class=\"items-wrapper\">\n                    \n                    <div class=\"item features-image active\">\n                        <div class=\"item-wrapper\">\n                            <div class=\"item-img\">\n                                <img src=\"@PROJECT_PATH@/assets/images/20220403-130931-1055x1407.webp\" alt=\"Mobirise Website Builder\">\n                            </div>\n                            <div class=\"card-box\">\n                                <h4 class=\"card-name mbr-fonts-style\" mbr-theme-style=\"display-5\" mbr-if=\"showName\" data-app-selector=\".card-name, .mbr-section-btn\">Christophe</h4>\n                                <p class=\"card-role mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showRole\" data-app-selector=\".card-role\">Toujours là pour assurer confort et le bon fonctionnement de la ferme&nbsp;</p>\n                                <div mbr-buttons mbr-theme-style=\"display-4\" class=\"mbr-section-btn\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove, -iconFont\"><a class=\"btn btn-primary\" data-app-placeholder=\"Type Text\" href=\"mailto:toscanapineta@gmail.com?subject=Contact%20Christophe\">Contactez-nous</a></div>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"item features-image\">\n                        <div class=\"item-wrapper\">\n                            <div class=\"item-img\">\n                                <img src=\"@PROJECT_PATH@/assets/images/20240525-1121512-1055x1876.webp\" alt=\"Mobirise Website Builder\">\n                            </div>\n                            <div class=\"card-box\">\n                                <h4 class=\"card-name mbr-fonts-style\" mbr-theme-style=\"display-5\" mbr-if=\"showName\" data-app-selector=\".card-name, .mbr-section-btn\">Simona</h4>\n                                <p class=\"card-role mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showRole\" data-app-selector=\".card-role\">Passionnée par la Toscane, je vous ouvre les portes de notre havre de paix</p>\n                                <div mbr-buttons mbr-theme-style=\"display-4\" class=\"mbr-section-btn\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove, -iconFont\"><a class=\"btn btn-primary\" href=\"mailto:toscanapineta@gmail.com?subject=Contact%20Simona\" data-app-placeholder=\"Type Text\">Contactez-nous</a></div>\n                            </div>\n                        </div>\n                    </div>\n                    \n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
-          "_anchor": "features05-l",
-          "_isUserblock": true,
-          "_cid": "v4s6OaTgBu",
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"slider02 mbr-embla plantm5\" group=\"Sliders & Galleries\" plugins=\"embla\" mbr-class=\"{\n    'mbr-fullscreen': fullScreen,\n    'mbr-parallax-background': bg.parallax}\">\n\n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\" checked>\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <header>Show/Hide</header>\n        <input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked>\n        <input type=\"color\" title=\"Container BG\" name=\"containerBg\" value=\"#e6eddc\">\n        <input type=\"checkbox\" title=\"Decoration\" name=\"showDecor\" checked>\n        <input type=\"color\" title=\"Decoration Color\" value=\"#d1e0be\" name=\"decor\" condition=\"showDecor\" selected>\n        <header>Carousel</header>\n        <input type=\"checkbox\" title=\"Autoplay\" name=\"autoplay\">\n        <input type=\"range\" title=\"Interval\" name=\"interval\" min=\"1\" max=\"10\" value=\"5\" step=\"1\" condition=\"autoplay\">\n        <input type=\"checkbox\" title=\"Loop\" name=\"loop\" checked>\n        <input type=\"checkbox\" title=\"Draggable\" name=\"draggable\" checked>\n        <input type=\"checkbox\" name=\"arrows\" title=\"Arrows\" checked>\n        <input type=\"checkbox\" name=\"arrowsMobile\" title=\"Mobile Arrows\" condition=\"arrows\" checked>\n        <input type=\"color\" name=\"arrowsColor\" title=\"Arrows Color\" value=\"#5c834f\" condition=\"arrows\">\n        <input type=\"color\" name=\"arrowsBg\" title=\"Arrows BG\" value=\"#d1e0be\" condition=\"arrows\">\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Image\" value=\"../_images/background1.jpg\">\n            <input type=\"color\" title=\"Color\" value=\"#f1f5eb\" selected>\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#f1f5eb\" condition=\"overlay && bg.type == 'image'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.5\" condition=\"overlay && bg.type == 'image'\">\n    </mbr-parameters>\n    <div class=\"mbr-overlay\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\" mbr-if=\"overlay && bg.type !== 'color'\"></div>\n\n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row\">\n            <div class=\"col-12\">\n                <div class=\"card-wrapper large-radius\">\n                    <div class=\"title-wrapper\">\n                        <h2 class=\"mbr-section-title mbr-fonts-style\" mbr-theme-style=\"display-2\" data-app-selector=\".mbr-section-title, .title-wrapper\" mbr-if=\"showTitle\">The interior of our apartments</h2>\n                    </div>\n                    <div class=\"embla\" data-loop=\"{{loop}}\" data-auto-play=\"{{autoplay}}\" data-auto-play-interval=\"{{interval}}\" data-draggable=\"{{draggable}}\" data-skip-snaps=\"true\" data-align=\"center\" data-contain-scroll=\"trimSnaps\">\n                        <div class=\"embla__viewport card-wrap\" mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n                            <div class=\"embla__container\">\n                                <div class=\"embla__slide slider-image item\" mbr-style=\"{'margin-left': gap + 'px', 'margin-right': gap + 'px'}\">\n                                    <div class=\"slide-content\">\n                                        <div class=\"item-wrapper\">\n                                            <div class=\"item-img\">\n                                                <img src=\"../_images/plant/image14.jpg\" alt=\"Mobirise Website Builder\">\n                                            </div>\n                                        </div>\n                                    </div>\n                                </div>\n                                <div class=\"embla__slide slider-image item\" mbr-style=\"{'margin-left': gap + 'px', 'margin-right': gap + 'px'}\">\n                                    <div class=\"slide-content\">\n                                        <div class=\"item-wrapper\">\n                                            <div class=\"item-img\">\n                                                <img src=\"../_images/plant/image13.jpg\" alt=\"Mobirise Website Builder\">\n                                            </div>\n                                        </div>\n                                    </div>\n                                </div>\n                                <div class=\"embla__slide slider-image item\" mbr-style=\"{'margin-left': gap + 'px', 'margin-right': gap + 'px'}\">\n                                    <div class=\"slide-content\">\n                                        <div class=\"item-wrapper\">\n                                            <div class=\"item-img\">\n                                                <img src=\"../_images/plant/image11.jpg\" alt=\"Mobirise Website Builder\">\n                                            </div>\n                                        </div>\n                                    </div>\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"arrows-wrapper\">\n                            <button class=\"embla__button embla__button--prev\">\n                                <span class=\"mobi-mbri mobi-mbri-left mbr-iconfont\" aria-hidden=\"true\"></span>\n                                <span class=\"sr-only visually-hidden visually-hidden\">Previous</span>\n                            </button>\n                            <button class=\"embla__button embla__button--next\">\n                                <span class=\"mobi-mbri mobi-mbri-right mbr-iconfont\" aria-hidden=\"true\"></span>\n                                <span class=\"sr-only visually-hidden visually-hidden\">Next</span>\n                            </button>\n                        </div>\n                    </div>\n                    <div class=\"decor-wrapper\" mbr-if=\"showDecor\"></div>\n                    <div class=\"decor-wrapper decor_2\" mbr-if=\"showDecor\"></div>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "v9Zp9ht71J",
           "_protectedParams": [],
           "_global": false,
           "_once": false,
-          "_params": {}
+          "_params": {},
+          "_anchor": "slider02-3d"
         }
       ]
     },
